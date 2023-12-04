@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,10 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/testProfile', [App\Http\Controllers\HomeController::class, 'testProfile'])->name('testProfile');
+
+Route::get('/user/home', [App\Http\Controllers\UserController::class, 'index']);
 
 Auth::routes();
 

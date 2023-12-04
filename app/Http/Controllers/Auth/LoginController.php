@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -26,7 +29,22 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected function authenticated(Request $request, $user)
+    {
+
+      if ($user->isActive == 0) {
+        Auth::logout($request);
+        return redirect('/')->with('error', 'Your account has been deactivated. Please contact support.');
+      }
+      elseif ( $user->roleId == User::ROLE_ADMIN ) {
+        return redirect('/admin');
+      }
+      elseif ($user->roleId == User::ROLE_DEFAULT_TYPE)
+      {
+        return redirect('/user/home');
+      }
+
+    }
 
     /**
      * Create a new controller instance.

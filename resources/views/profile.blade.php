@@ -90,21 +90,6 @@
                                 <img src="{{ asset('testProfileContent/profilePic.jpg') }}" class="card-img-top" alt="Photo 3">
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="{{ asset('testProfileContent/profilePic.jpg') }}" class="card-img-top" alt="Photo 3">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="{{ asset('testProfileContent/profilePic.jpg') }}" class="card-img-top" alt="Photo 3">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="{{ asset('testProfileContent/profilePic.jpg') }}" class="card-img-top" alt="Photo 3">
-                            </div>
-                        </div>
                         <!-- Add more columns for additional photos -->
                     </div>
                 </div>
